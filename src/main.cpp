@@ -6,8 +6,13 @@ int main() {
   aoc_2022::Day1Solver day1Solver;
   auto exampleSolution = day1Solver.computeFirstPartSolution(
       getFileContext("../res/2022_day_1_example_input.txt"));
-  std::cout << "[2022-12-01] Solution of the example:" << exampleSolution
+  std::cout << "[2022-12-01] Solution of the example: " << exampleSolution
             << (exampleSolution == 24000 ? " [Success]" : "FAIL") << std::endl;
+
+  auto part1Solution = day1Solver.computeFirstPartSolution(
+      getFileContext("../res/2022_day_1_part_1_input.txt"));
+  std::cout << "[2022-12-01] Solution of the part 1: " << part1Solution
+            << std::endl;
 
   return 0;
 }
