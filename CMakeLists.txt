@@ -7,6 +7,11 @@ project(
   HOMEPAGE_URL "https://adventofcode.com/"
   LANGUAGES CXX)
 
+include(${CMAKE_CURRENT_LIST_DIR}/cmake/conan.cmake)
+conan_install(${CMAKE_CURRENT_LIST_DIR})
+include(${CMAKE_BINARY_DIR}/conanbuildinfo_multi.cmake)
+conan_basic_setup(TARGETS)
+
 set(AOC_SOURCE_FOLDER ${CMAKE_CURRENT_LIST_DIR}/src)
 
 add_executable(
@@ -16,3 +21,4 @@ add_executable(
   ${AOC_SOURCE_FOLDER}/utils.cpp)
 set_target_properties(advent_of_code PROPERTIES CXX_STANDARD 20)
 target_include_directories(advent_of_code PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
+target_link_libraries(advent_of_code PRIVATE CONAN_PKG::fmt)
