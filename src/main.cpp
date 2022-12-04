@@ -12,7 +12,7 @@ int main() {
             << std::endl;
 
   auto part1Solution = day1Solver.computeFirstPartSolution(
-      getFileContext("../res/2022_day_1_part_1_input.txt"));
+      getFileContext("../res/2022_day_1_input.txt"));
   std::cout << "[2022-12-01] Solution of the part 1: " << part1Solution
             << std::endl;
 
@@ -21,6 +21,11 @@ int main() {
   std::cout << "[2022-12-01] Solution of the example for the part 2: "
             << exampleSolutionPart2
             << (exampleSolutionPart2 == 45000 ? " [Success]" : " [FAIL]")
+            << std::endl;
+
+  auto part2Solution = day1Solver.computeSecondPartSolution(
+      getFileContext("../res/2022_day_1_input.txt"));
+  std::cout << "[2022-12-01] Solution of the part 2: " << part2Solution
             << std::endl;
 
   return 0;
