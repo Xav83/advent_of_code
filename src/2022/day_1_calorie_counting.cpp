@@ -32,8 +32,6 @@ Day1Solver::computeFirstPartSolution(const std::string_view input) {
   return maxCaloriesCarryByOneElf;
 }
 
-#include <iostream>
-
 PuzzleSolution
 Day1Solver::computeSecondPartSolution(const std::string_view input) {
   auto it = input.begin();
@@ -61,11 +59,6 @@ Day1Solver::computeSecondPartSolution(const std::string_view input) {
   maxCaloriesCarryByTopThreeElves.erase(
       std::min_element(maxCaloriesCarryByTopThreeElves.begin(),
                        maxCaloriesCarryByTopThreeElves.end()));
-
-  std::cout << "Top " << maxCaloriesCarryByTopThreeElves.size() << ": "
-            << maxCaloriesCarryByTopThreeElves[0] << ", "
-            << maxCaloriesCarryByTopThreeElves[1] << ", "
-            << maxCaloriesCarryByTopThreeElves[2] << std::endl;
 
   return std::accumulate(maxCaloriesCarryByTopThreeElves.begin(),
                          maxCaloriesCarryByTopThreeElves.end(), 0);
