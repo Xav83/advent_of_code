@@ -1,39 +1,34 @@
 #include "2022/day_1_calorie_counting.hpp"
-#include <iostream>
+#include <fmt/core.h>
 
 using Day = short;
 using Year = unsigned int;
 
 void printSolutionsOfDay(Day day, Year year, auto solver) {
-  auto exampleSolutionPart1 = solver.computeFirstPartSolution(
-      getFileContext("../res/" + std::to_string(year) + "_day_" +
-                     std::to_string(day) + "_example_input.txt"));
-  std::cout << "[" << year << "-12-" << day
-            << "] Solution of the example for the part 1: "
-            << exampleSolutionPart1
-            << (exampleSolutionPart1 == 24000 ? " [Success]" : " [FAIL]")
-            << std::endl;
+  auto exampleLocation =
+      fmt::format("../res/{}_day_{}_example_input.txt", year, day);
+  auto exampleSolutionPart1 =
+      solver.computeFirstPartSolution(getFileContext(exampleLocation));
+  fmt::print("[{}-12-{}] Solution of the example for the part 1: {} [{}]\n",
+             year, day, exampleSolutionPart1,
+             (exampleSolutionPart1 == 24000 ? "Success" : "FAIL"));
 
-  auto part1Solution = solver.computeFirstPartSolution(
-      getFileContext("../res/" + std::to_string(year) + "_day_" +
-                     std::to_string(day) + "_input.txt"));
-  std::cout << "[" << year << "-12-" << day
-            << "] Solution of the part 1: " << part1Solution << std::endl;
+  auto inputLocation = fmt::format("../res/{}_day_{}_input.txt", year, day);
+  auto part1Solution =
+      solver.computeFirstPartSolution(getFileContext(inputLocation));
+  fmt::print("[{}-12-{}] Solution of the part 1: {}\n", year, day,
+             part1Solution);
 
-  auto exampleSolutionPart2 = solver.computeSecondPartSolution(
-      getFileContext("../res/" + std::to_string(year) + "_day_" +
-                     std::to_string(day) + "_example_input.txt"));
-  std::cout << "[" << year << "-12-" << day
-            << "] Solution of the example for the part 2: "
-            << exampleSolutionPart2
-            << (exampleSolutionPart2 == 45000 ? " [Success]" : " [FAIL]")
-            << std::endl;
+  auto exampleSolutionPart2 =
+      solver.computeSecondPartSolution(getFileContext(exampleLocation));
+  fmt::print("[{}-12-{}] Solution of the example for the part 2: {} [{}]\n",
+             year, day, exampleSolutionPart2,
+             (exampleSolutionPart2 == 45000 ? "Success" : "FAIL"));
 
-  auto part2Solution = solver.computeSecondPartSolution(
-      getFileContext("../res/" + std::to_string(year) + "_day_" +
-                     std::to_string(day) + "_input.txt"));
-  std::cout << "[" << year << "-12-" << day
-            << "] Solution of the part 2: " << part2Solution << std::endl;
+  auto part2Solution =
+      solver.computeSecondPartSolution(getFileContext(inputLocation));
+  fmt::print("[{}-12-{}] Solution of the part 2: {}\n", year, day,
+             part2Solution);
 }
 
 int main() {
