@@ -52,7 +52,33 @@ Day2Solver::computeFirstPartSolution(const std::string_view input) {
   return finalScore;
 }
 
+constexpr std::array<Match, 9> matchesWithOtherRuleSet{
+    Match{'A', 'X', SCISSORS_SCORE + LOST_SCORE},
+    Match{'A', 'Y', ROCK_SCORE + DRAW_SCORE},
+    Match{'A', 'Z', PAPER_SCORE + WIN_SCORE},
+    Match{'B', 'X', ROCK_SCORE + LOST_SCORE},
+    Match{'B', 'Y', PAPER_SCORE + DRAW_SCORE},
+    Match{'B', 'Z', SCISSORS_SCORE + WIN_SCORE},
+    Match{'C', 'X', PAPER_SCORE + LOST_SCORE},
+    Match{'C', 'Y', SCISSORS_SCORE + DRAW_SCORE},
+    Match{'C', 'Z', ROCK_SCORE + WIN_SCORE}};
+
 PuzzleSolution
 Day2Solver::computeSecondPartSolution(const std::string_view input) {
-  return 0;
+  Score finalScore{0};
+  for (auto it = input.begin(); it != input.end(); it = std::next(it, 4)) {
+    assert(std::distance(it, std::find(it, input.end(), '\n')) == 3);
+
+    const Hand elf = *it;
+    const Hand me = *std::next(it, 2);
+
+    auto currentMatch = std::find_if(
+        matchesWithOtherRuleSet.begin(), matchesWithOtherRuleSet.end(),
+        [&elf, &me](const auto &match) {
+          return match.elf == elf and match.me == me;
+        });
+    assert(currentMatch != matchesWithOtherRuleSet.end());
+    finalScore += currentMatch->value;
+  }
+  return finalScore;
 }
