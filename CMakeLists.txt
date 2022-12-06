@@ -17,8 +17,10 @@ set(AOC_SOURCE_FOLDER ${CMAKE_CURRENT_LIST_DIR}/src)
 add_executable(
   advent_of_code
   ${AOC_SOURCE_FOLDER}/main.cpp
+  ${AOC_SOURCE_FOLDER}/2015/day_1_not_quite_lisp.cpp
   ${AOC_SOURCE_FOLDER}/2022/day_1_calorie_counting.cpp
   ${AOC_SOURCE_FOLDER}/utils.cpp)
+
 set_target_properties(advent_of_code PROPERTIES CXX_STANDARD 20)
 target_include_directories(advent_of_code PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
 target_link_libraries(advent_of_code PRIVATE CONAN_PKG::fmt)

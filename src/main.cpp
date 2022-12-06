@@ -1,4 +1,6 @@
+#include "2015/day_1_not_quite_lisp.hpp"
 #include "2022/day_1_calorie_counting.hpp"
+
 #include <fmt/core.h>
 
 using Day = short;
@@ -37,6 +39,7 @@ void printSolutionsOfDay(Day day, Year year, auto solver,
 
 int main() {
 
+  printSolutionsOfDay(01, 2015, aoc_2015::Day1Solver(), 3, 1);
   printSolutionsOfDay(01, 2022, aoc_2022::Day1Solver(), 24000, 45000);
 
   return 0;
