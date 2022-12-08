@@ -1,6 +1,7 @@
 #include "2015/day_1_not_quite_lisp.hpp"
 #include "2022/day_1_calorie_counting.hpp"
 #include "2022/day_2_rock_paper_scissors.hpp"
+#include "2022/day_3_rucksack_reorganization.hpp"
 
 #include <fmt/core.h>
 
@@ -43,6 +44,7 @@ int main() {
   printSolutionsOfDay(01, 2015, aoc_2015::Day1Solver(), 3, 1);
   printSolutionsOfDay(01, 2022, aoc_2022::Day1Solver(), 24000, 45000);
   printSolutionsOfDay(02, 2022, aoc_2022::Day2Solver(), 15, 12);
+  printSolutionsOfDay(03, 2022, aoc_2022::Day3Solver(), 157, -1);
 
   return 0;
 }
