@@ -47,5 +47,33 @@ Day3Solver::computeFirstPartSolution(const std::string_view input) {
 
 PuzzleSolution
 Day3Solver::computeSecondPartSolution(const std::string_view input) {
-  return 0;
+  ItemTypePriority propertySum{0};
+
+  for (auto it = input.begin(); it != input.end();) {
+    const auto endOfLineRucksack1 = std::find(it, input.end(), '\n');
+    const auto startOfLineRucksack2 = std::next(endOfLineRucksack1);
+    const auto endOfLineRucksack2 =
+        std::find(startOfLineRucksack2, input.end(), '\n');
+    const auto startOfLineRucksack3 = std::next(endOfLineRucksack2);
+    const auto endOfLineRucksack3 =
+        std::find(startOfLineRucksack3, input.end(), '\n');
+
+    for (; it != endOfLineRucksack1; it = std::next(it)) {
+      const auto isItemInRuckscak2 =
+          std::any_of(startOfLineRucksack2, endOfLineRucksack2,
+                      [&it](const auto letter) { return letter == *it; });
+      const auto isItemInRuckscak3 =
+          std::any_of(startOfLineRucksack3, endOfLineRucksack3,
+                      [&it](const auto letter) { return letter == *it; });
+
+      if (isItemInRuckscak2 and isItemInRuckscak3) {
+        propertySum += letterToPriority(*it);
+        break;
+      }
+    }
+
+    it = std::next(endOfLineRucksack3);
+  }
+
+  return propertySum;
 }
