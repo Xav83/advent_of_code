@@ -1,15 +1,14 @@
 #include "day_1_not_quite_lisp.hpp"
 #include <algorithm>
 #include <cassert>
+#include <ranges>
 
 using aoc_2015::Day1Solver;
 
 PuzzleSolution
 Day1Solver::computeFirstPartSolution(const std::string_view input) {
-  const auto openParenthesisCount =
-      std::count(std::begin(input), std::end(input), '(');
-  const auto closeParenthesisCount =
-      std::count(std::begin(input), std::end(input), ')');
+  const auto openParenthesisCount = std::ranges::count(input, '(');
+  const auto closeParenthesisCount = std::ranges::count(input, ')');
 
   return openParenthesisCount - closeParenthesisCount;
 }
@@ -17,8 +16,8 @@ Day1Solver::computeFirstPartSolution(const std::string_view input) {
 PuzzleSolution
 Day1Solver::computeSecondPartSolution(const std::string_view input) {
   auto floor{0};
-  const auto firstEnteringInTheBasement = std::find_if(
-      std::begin(input), std::end(input), [&floor](const auto &character) {
+  const auto firstEnteringInTheBasement =
+      std::ranges::find_if(input, [&floor](const auto &character) {
         if (character == '(') {
           ++floor;
         } else if (character == ')') {

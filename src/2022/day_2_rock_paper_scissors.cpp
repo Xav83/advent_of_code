@@ -42,9 +42,9 @@ Day2Solver::computeFirstPartSolution(const std::string_view input) {
     const Hand elf = *it;
     const Hand me = *std::next(it, 2);
 
-    auto currentMatch = std::find_if(
-        matches.begin(), matches.end(), [&elf, &me](const auto &match) {
-          return match.elf == elf and match.me == me;
+    auto currentMatch =
+        std::ranges::find_if(matches, [&elf, &me](const auto &match) {
+          return match.elf == elf && match.me == me;
         });
     assert(currentMatch != matches.end());
     finalScore += currentMatch->value;
@@ -72,10 +72,9 @@ Day2Solver::computeSecondPartSolution(const std::string_view input) {
     const Hand elf = *it;
     const Hand me = *std::next(it, 2);
 
-    auto currentMatch = std::find_if(
-        matchesWithOtherRuleSet.begin(), matchesWithOtherRuleSet.end(),
-        [&elf, &me](const auto &match) {
-          return match.elf == elf and match.me == me;
+    auto currentMatch = std::ranges::find_if(
+        matchesWithOtherRuleSet, [&elf, &me](const auto &match) {
+          return match.elf == elf && match.me == me;
         });
     assert(currentMatch != matchesWithOtherRuleSet.end());
     finalScore += currentMatch->value;

@@ -1,6 +1,8 @@
 #include "day_3_rucksack_reorganization.hpp"
 #include <algorithm>
 #include <cctype>
+#include <ranges>
+#include <vector>
 
 using aoc_2022::Day3Solver;
 
@@ -25,8 +27,9 @@ Day3Solver::computeFirstPartSolution(const std::string_view input) {
         std::next(it, std::distance(it, endOfLine) / 2);
     std::vector<Item> itemAlreadyChecked;
     for (; it != secondCompartiment; it = std::next(it)) {
-      if (std::any_of(itemAlreadyChecked.begin(), itemAlreadyChecked.end(),
-                      [&it](const auto letter) { return letter == *it; })) {
+      if (std::ranges::any_of(itemAlreadyChecked, [&it](const auto letter) {
+            return letter == *it;
+          })) {
         continue;
       }
       const auto isItemInBothCompartiment =
@@ -66,7 +69,7 @@ Day3Solver::computeSecondPartSolution(const std::string_view input) {
           std::any_of(startOfLineRucksack3, endOfLineRucksack3,
                       [&it](const auto letter) { return letter == *it; });
 
-      if (isItemInRuckscak2 and isItemInRuckscak3) {
+      if (isItemInRuckscak2 && isItemInRuckscak3) {
         propertySum += letterToPriority(*it);
         break;
       }

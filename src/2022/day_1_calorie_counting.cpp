@@ -1,5 +1,7 @@
 #include "day_1_calorie_counting.hpp"
+#include <algorithm>
 #include <numeric>
+#include <ranges>
 #include <string>
 #include <vector>
 
@@ -43,8 +45,7 @@ Day1Solver::computeSecondPartSolution(const std::string_view input) {
 
       maxCaloriesCarryByTopThreeElves.emplace_back(caloriesCarriedByCurrentElf);
       maxCaloriesCarryByTopThreeElves.erase(
-          std::min_element(maxCaloriesCarryByTopThreeElves.begin(),
-                           maxCaloriesCarryByTopThreeElves.end()));
+          std::ranges::min_element(maxCaloriesCarryByTopThreeElves));
       caloriesCarriedByCurrentElf = 0;
       ++it;
       continue;
@@ -57,8 +58,7 @@ Day1Solver::computeSecondPartSolution(const std::string_view input) {
   // last elf
   maxCaloriesCarryByTopThreeElves.emplace_back(caloriesCarriedByCurrentElf);
   maxCaloriesCarryByTopThreeElves.erase(
-      std::min_element(maxCaloriesCarryByTopThreeElves.begin(),
-                       maxCaloriesCarryByTopThreeElves.end()));
+      std::ranges::min_element(maxCaloriesCarryByTopThreeElves));
 
   return std::accumulate(maxCaloriesCarryByTopThreeElves.begin(),
                          maxCaloriesCarryByTopThreeElves.end(), 0);
