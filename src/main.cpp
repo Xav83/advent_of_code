@@ -48,7 +48,7 @@ int main() {
   printSolutionsOfDay(01, 2022, aoc_2022::Day1Solver(), 24000, 45000);
   printSolutionsOfDay(02, 2022, aoc_2022::Day2Solver(), 15, 12);
   printSolutionsOfDay(03, 2022, aoc_2022::Day3Solver(), 157, 70);
-  printSolutionsOfDay(04, 2022, aoc_2022::Day4Solver(), 2, -1);
+  printSolutionsOfDay(04, 2022, aoc_2022::Day4Solver(), 2, 4);
 
   return 0;
 }
