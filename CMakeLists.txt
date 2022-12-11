@@ -22,6 +22,7 @@ add_executable(
   ${AOC_SOURCE_FOLDER}/2022/day_1_calorie_counting.cpp
   ${AOC_SOURCE_FOLDER}/2022/day_2_rock_paper_scissors.cpp
   ${AOC_SOURCE_FOLDER}/2022/day_3_rucksack_reorganization.cpp
+  ${AOC_SOURCE_FOLDER}/2022/day_4_camp_cleanup.cpp
   ${AOC_SOURCE_FOLDER}/utils.cpp)
 
 set_target_properties(advent_of_code PROPERTIES CXX_STANDARD 20)
