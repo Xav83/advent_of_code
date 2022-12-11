@@ -10,7 +10,7 @@ using Item = char;
 using ItemTypePriority = size_t;
 using RucksackContent = std::string_view;
 
-ItemTypePriority letterToPriority(const char letter) {
+ItemTypePriority letterToPriority(const Item letter) {
   if (std::islower(letter)) {
     return letter - 'a' + 1;
   }
