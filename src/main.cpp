@@ -1,4 +1,5 @@
 #include "2015/day_1_not_quite_lisp.hpp"
+#include "2015/day_2_I_was_told_there_would_be_no_math.hpp"
 #include "2022/day_1_calorie_counting.hpp"
 #include "2022/day_2_rock_paper_scissors.hpp"
 #include "2022/day_3_rucksack_reorganization.hpp"
@@ -42,6 +43,7 @@ void printSolutionsOfDay(Day day, Year year, auto solver,
 int main() {
 
   printSolutionsOfDay(01, 2015, aoc_2015::Day1Solver(), 3, 1);
+  printSolutionsOfDay(02, 2015, aoc_2015::Day2Solver(), 58, -1);
   printSolutionsOfDay(01, 2022, aoc_2022::Day1Solver(), 24000, 45000);
   printSolutionsOfDay(02, 2022, aoc_2022::Day2Solver(), 15, 12);
   printSolutionsOfDay(03, 2022, aoc_2022::Day3Solver(), 157, 70);

@@ -18,6 +18,7 @@ add_executable(
   advent_of_code
   ${AOC_SOURCE_FOLDER}/main.cpp
   ${AOC_SOURCE_FOLDER}/2015/day_1_not_quite_lisp.cpp
+  ${AOC_SOURCE_FOLDER}/2015/day_2_I_was_told_there_would_be_no_math.cpp
   ${AOC_SOURCE_FOLDER}/2022/day_1_calorie_counting.cpp
   ${AOC_SOURCE_FOLDER}/2022/day_2_rock_paper_scissors.cpp
   ${AOC_SOURCE_FOLDER}/2022/day_3_rucksack_reorganization.cpp
