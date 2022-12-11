@@ -67,5 +67,17 @@ Day2Solver::computeFirstPartSolution(const std::string_view input) {
 
 PuzzleSolution
 Day2Solver::computeSecondPartSolution(const std::string_view input) {
-  return 0;
+  PuzzleSolution ribbonLength{0};
+  for (auto it = input.begin(); it != input.end();) {
+    const auto endOfLine = std::find(it, input.end(), '\n');
+    const auto dimension =
+        makeDimensionFromLine(std::string_view(it, endOfLine));
+    const auto max =
+        std::max({dimension.length, dimension.width, dimension.height});
+    ribbonLength += 2 * dimension.length + 2 * dimension.width +
+                    2 * dimension.height - 2 * max +
+                    dimension.length * dimension.width * dimension.height;
+    it = std::next(endOfLine);
+  }
+  return ribbonLength;
 }

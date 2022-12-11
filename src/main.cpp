@@ -43,7 +43,7 @@ void printSolutionsOfDay(Day day, Year year, auto solver,
 int main() {
 
   printSolutionsOfDay(01, 2015, aoc_2015::Day1Solver(), 3, 1);
-  printSolutionsOfDay(02, 2015, aoc_2015::Day2Solver(), 58, -1);
+  printSolutionsOfDay(02, 2015, aoc_2015::Day2Solver(), 58, 34);
   printSolutionsOfDay(01, 2022, aoc_2022::Day1Solver(), 24000, 45000);
   printSolutionsOfDay(02, 2022, aoc_2022::Day2Solver(), 15, 12);
   printSolutionsOfDay(03, 2022, aoc_2022::Day3Solver(), 157, 70);
